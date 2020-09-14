@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}this is a django title {% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h2>{{post.title}}</h2>
+    <p>{{post.body}}</p><br><br>
+    <small>By: {{post.author}}</small>
+    <h3>Created on: {{post.date_field}}
+    <a href="{% url 'post' %}" class="btn btn-primary">Back</a>
+{% else %}
+    <h2>hey login please first</h2>
+{% endif %}
+{% endblock %}
